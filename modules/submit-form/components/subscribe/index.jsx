@@ -14,6 +14,7 @@ import {
   FormItem,
   FormControl,
   FormMessage,
+  FormLabel,
 } from "@modules/common/components/ui/form";
 
 export function SubscribeForm() {
@@ -63,13 +64,14 @@ export function SubscribeForm() {
     return <SubscribeSuccess />;
   } else {
     return (
-      <div className="bg-sky-950 min-w-36">
+       <section  className="flex flex-col col-span-full items-center bg-blue-300 my-5">
+      <div className="bg-blue-950 min-w-36">
         <Form {...form}>
-          <div className="min-w-56 ">
+          <div className=" min-w-56 ">
+            <FormLabel className="text-white">Subscribe to our weekly Newsletter</FormLabel>
             <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="inline-flex items-start justify-start h-full"
-            >
+            className="flex flex-col gap-2"
+              onSubmit={form.handleSubmit(onSubmit)}>
               {/* EMAIL */}
               <FormField
                 control={form.control}
@@ -84,7 +86,7 @@ export function SubscribeForm() {
                 )}
               />
               <Button
-                className="bg-green-700 border-none rounded-none hover:bg-blue-700"
+                className="bg-green-700 border-none w-full rounded-none hover:bg-blue-700"
                 type="submit"
                 disabled={submitting}
               >
@@ -97,6 +99,7 @@ export function SubscribeForm() {
           </div>
         </Form>
       </div>
+      </section>
     );
   }
 }
