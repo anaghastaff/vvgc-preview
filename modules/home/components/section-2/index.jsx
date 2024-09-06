@@ -1,5 +1,6 @@
 import { Card } from "@modules/common/components/ui/card";
 import SponsorEvent from "@modules/events/components/sponsor-event-card";
+import RenderEvent from "@modules/events/components/event-card-1";
 import { Fragment } from "react";
 import { Button } from "@modules/common/components/ui/button";
 import Link from "next/link";
@@ -18,10 +19,8 @@ const SectionTwo = ({ data }) => {
 
         {/* <div className="col-span-1 w-full"> */}
         {data.content.map((event, index) => {
-          return event.homepage === "sponsor" ? (
-          
-                  <SponsorEvent data={event} key={index} />
-              
+          return event.homepage === "sponsor" ? (          
+                  <SponsorEvent data={event} key={index} />              
           ) : null;
         })}
 
