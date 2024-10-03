@@ -8,7 +8,7 @@ const SectionTwo = ({ data }) => {
     <Fragment>
       <div className="grid grid-col-1 lg:grid-cols-2 p-4 gap-4 w-full">
         {/* Special Event Card */}
-        <div className="p-2 col-span-full ">
+        <div className="p-2 col-span-full">
           <h1 className="text-2xl lg:text-3xl font-cormorant text-blue-950 font-semibold">
             Upcoming Special Events
           </h1>

@@ -146,7 +146,7 @@ const SpecialEventCard = ({data}) => {
               </Link>
             )}
 
-            <div className="flex md:flex-row  p-2">
+            <div className="flex md:flex-row p-2">
               <span className="justify-center md:text-xl md:text-left text-blue-950 pr-2">
                 Add to Calendar:{" "}
               </span>

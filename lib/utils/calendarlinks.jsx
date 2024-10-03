@@ -52,23 +52,18 @@ function convertToAppleTimeFormat(timeString) {
 }
 
 function convertToOutlookTimeFormat(timeString) {
-
     const match = timeString.match(/(\d+):(\d+)([APap][Mm])/);
-
     if (!match) {
         return "Invalid time format";
     }
-
     let hours = parseInt(match[1]);
     const minutes = parseInt(match[2]);
     const ampm = match[3].toLowerCase();
-
     if (ampm === 'pm' && hours !== 12) {
         hours += 12;
     } else if (ampm === 'am' && hours === 12) {
         hours = 0;
     }
-
     // Format the result
     const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:00.000`;
     //console.log(formattedTime);
@@ -82,7 +77,7 @@ function generateAppleCalendarLink(event) {
     appleCalendarLink += 'n=' + encodeURIComponent(event.description) + '&';
     appleCalendarLink += 's=' + event.start + '&';
     appleCalendarLink += 'e=' + event.end;
-
+    console.log(event.start)
     return appleCalendarLink;
 }
 
@@ -102,7 +97,9 @@ function generateOutlookCalendarLink(outLookDataFormat) {
     outlookCalendarLink += '&subject=' + encodeURIComponent(outLookDataFormat.summary);
     outlookCalendarLink += '&location=' + encodeURIComponent(outLookDataFormat.location);
     outlookCalendarLink += '&body=' + encodeURIComponent(outLookDataFormat.description);
+    // console.log(outLookDataFormat.start);
     return outlookCalendarLink;
+
 }
 
 export default function CalenderLinks({ eventdata }) {
@@ -135,17 +132,12 @@ export default function CalenderLinks({ eventdata }) {
 
     return (
         <React.Fragment>
-
             <Link href={appleCalendarLink} target="_blank" className="px-1"><PiAppleLogoDuotone size={25} className="text-sky-800"/></Link>
             <Link href={googleCalendarLink} target="_blank" className="px-1"><FcGoogle size={25} /></Link>
             <Link href={outlookCalendarLink} target="_blank" className="px-1">
-                <TfiMicrosoftAlt size={25} className="text-sky-500"/></Link>
-
-
-
+            <TfiMicrosoftAlt size={25} className="text-sky-500"/></Link>
         </React.Fragment>
     )
-
 }
 
 
